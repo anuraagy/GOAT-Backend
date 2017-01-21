@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food_type: MyString
+  servings: 1
+  meal_type: MyString
+
+two:
+  food_type: MyString
+  servings: 1
+  meal_type: MyString

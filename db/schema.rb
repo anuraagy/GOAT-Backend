@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121202615) do
+ActiveRecord::Schema.define(version: 20170121215223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exercise_entries", force: :cascade do |t|
+    t.string   "exercise_type",   null: false
+    t.integer  "num_repetitions", null: false
+    t.float    "weight",          null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "exercise_types", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "food_entries", force: :cascade do |t|
+    t.string   "food_type",  null: false
+    t.integer  "servings",   null: false
+    t.string   "meal_type",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "food_types", force: :cascade do |t|
     t.string   "name",          null: false
@@ -35,6 +58,31 @@ ActiveRecord::Schema.define(version: 20170121202615) do
     t.integer  "iron"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.string   "exercise_type", null: false
+    t.string   "description",   null: false
+    t.string   "goal_number",   null: false
+    t.string   "current_value", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "item_types", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.string   "image",       null: false
+    t.integer  "value",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "purchased_items", force: :cascade do |t|
+    t.string   "item_type",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
