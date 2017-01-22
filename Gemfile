@@ -8,6 +8,8 @@ end
 gem 'rails'
 gem 'pg'
 gem 'puma'
+gem 'devise'
+gem 'config'
 
 gem 'sass-rails'
 gem 'uglifier'
@@ -15,7 +17,6 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
-gem 'config'
 
 group :development, :test do
   gem 'byebug', platform: :mri
