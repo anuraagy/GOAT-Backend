@@ -1,3 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    namespace :api do
+      namespace :v1 do
+        resources :exercise_entries,  :except => [:new, :show, :edit]
+        resources :exercise_types,    :except => [:new, :show, :edit, :edit, :destroy] do
+          get 'search', :on => :collection
+        end
+
+        resources :food_entries,  :except => [:new, :show, :edit]
+        resources :food_types,    :except => [:new, :show, :edit, :destroy] do
+          get 'search', :on => :collection
+        end
+
+        resources :goals,            :except => [:new, :show, :edit]
+        resources :item_types,       :except => [:create, :edit, :new, :show, :edit, :destroy]
+        resources :purchased_items,  :except => [:edit, :new, :show, :edit, :destroy]
+      end
+    end
 end
