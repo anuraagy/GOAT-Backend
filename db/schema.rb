@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20170121215223) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "name",                                null: false
     t.string   "token",                               null: false
     t.integer  "level",                  default: 0,  null: false
     t.integer  "speed",                  default: 0,  null: false

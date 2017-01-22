@@ -26,6 +26,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       # t.string   :unconfirmed_email # Only if using reconfirmable
 
       # Custom Auth
+      t.string  :name,     null: false
       t.string  :token,    null: false
 
       # Attributes
