@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+  skip_before_action :authenicate_token?
+
   def create
     user = User.new(user_params)
     token = SecureRandom.base58(24)
@@ -11,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render :json => user.as_json(:token => user.token, :email => user.email)
     else
-      render user.errors.as_json
+      render :json => user.errors.as_json
     end
   end
 
