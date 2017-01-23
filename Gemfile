@@ -11,6 +11,7 @@ gem 'puma'
 gem 'devise'
 gem 'config'
 gem "rspec"
+gem 'rspec-rails'
 gem "factory_girl_rails"
 
 gem 'sass-rails'

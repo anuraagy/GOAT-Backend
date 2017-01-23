@@ -11,7 +11,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     user.token = token
 
     if user.save
-      render :json => user.as_json(:token => user.token, :email => user.email)
+      render :json => user.as_json
     else
       render :json => user.errors.as_json
     end
