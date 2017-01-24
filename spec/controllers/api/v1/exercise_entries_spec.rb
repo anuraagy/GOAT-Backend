@@ -108,4 +108,23 @@ describe Api::V1::ExerciseEntriesController, :type => :controller do
       expect(json).to eq(expected_json)
     end
   end
+
+  describe "DELETE #destroy" do
+    it "Destroy an exercise entry" do
+      create_params = {
+        :exercise_type   => "#{@exercise_type.id}",
+        :num_repetitions => 10,
+        :weight          => 135,
+        :user_id         => @user.id
+      }
+      @exercise = ExerciseEntry.create(create_params)
+
+      destroy_params = {
+        :id => @exercise.id,
+        :token => @user.token
+      }
+
+      delete :destroy, :params => destroy_params
+    end
+  end
 end

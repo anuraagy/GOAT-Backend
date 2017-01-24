@@ -113,4 +113,23 @@ describe Api::V1::FoodEntriesController, :type => :controller do
       expect(json).to eq(expected_json)
     end
   end
+
+  describe "DELETE #destroy" do
+    it "Destroy an exercise entry" do
+      create_params = {
+        :food_type     => "#{@food_type.id}",
+        :servings      => 2,
+        :meal_type     => "Breakfast",
+        :user_id       => @user.id
+      }
+      @food_entry = FoodEntry.create(create_params)
+
+      destroy_params = {
+        :id => @food_entry.id,
+        :token => @user.token
+      }
+
+      delete :destroy, :params => destroy_params
+    end
+  end
 end
