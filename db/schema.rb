@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20170121215223) do
   end
 
   create_table "purchased_items", force: :cascade do |t|
-    t.string   "item_type",  null: false
+    t.integer  "item_type",  null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe Api::V1::ItemTypesController, :type => :controller do
   before(:each) do
-    params = {
+    user_params = {
       :email => "test@goat-app.com",
       :name  => "Goaty McGoatface",
       :password => "iamthegoat",
       :token => SecureRandom.base58(24)
     }
-    @user = User.create(params)
+    @user = User.create(user_params)
   end
 
   describe "GET #index" do
