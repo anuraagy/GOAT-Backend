@@ -66,10 +66,9 @@ ActiveRecord::Schema.define(version: 20170121215223) do
 
   create_table "goals", force: :cascade do |t|
     t.string   "name",          null: false
-    t.string   "exercise_type", null: false
-    t.string   "description",   null: false
-    t.string   "goal_number",   null: false
-    t.string   "current_value", null: false
+    t.integer  "exercise_type", null: false
+    t.integer  "goal_number",   null: false
+    t.integer  "current_value", null: false
     t.integer  "user_id",       null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -86,7 +85,7 @@ ActiveRecord::Schema.define(version: 20170121215223) do
   end
 
   create_table "purchased_items", force: :cascade do |t|
-    t.string   "item_type",  null: false
+    t.integer  "item_type",  null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

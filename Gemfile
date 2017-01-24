@@ -10,6 +10,9 @@ gem 'pg'
 gem 'puma'
 gem 'devise'
 gem 'config'
+gem "rspec"
+gem 'rspec-rails'
+gem "factory_girl_rails"
 
 gem 'sass-rails'
 gem 'uglifier'
@@ -17,6 +20,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
+gem 'pry'
 
 group :development, :test do
   gem 'byebug', platform: :mri

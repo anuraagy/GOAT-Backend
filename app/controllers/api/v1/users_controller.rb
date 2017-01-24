@@ -1,5 +1,5 @@
-class Api::V1::UsersController < ApplicationController
-  skip_before_action :authenicate_token?
+class Api::V1::UsersController < Api::V1::BaseController
+  skip_before_action :authenticate_token?
 
   def create
     user = User.new(user_params)
@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
     user.token = token
 
     if user.save
-      render :json => user.as_json(:token => user.token, :email => user.email)
+      render :json => user.as_json
     else
       render :json => user.errors.as_json
     end
@@ -22,9 +22,8 @@ class Api::V1::UsersController < ApplicationController
     password = params[:password]
 
     user = User.find_by_email(params[:email])
-
-    if user.nil?
-      if user.valid_password(password)
+    if !user.nil?
+      if user.valid_password?(password)
         render :json => { :success => true, :email => user.email, :token => user.token }
       else
         render :json => { :success => false, :message => "Invalid email or password submitted" }

@@ -1,9 +1,8 @@
 class Goal < ApplicationRecord
-  validate :name,           :presence => true
-  validate :exercise_type,  :presence => true
-  validate :description,    :presence => true
-  validate :goal_number,    :presence => true
-  validate :current_value,  :presence => true
+  validates :name,           :presence => true
+  validates :exercise_type,  :presence => true
+  validates :goal_number,    :presence => true
+  validates :current_value,  :presence => true
 
   belongs_to :user
 end
