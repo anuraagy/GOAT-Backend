@@ -19,7 +19,7 @@ describe Api::V1::UsersController, :type => :controller do
   end
 
   describe "POST #sign_in" do
-    it "Signs in the user" do
+    it "Signs in new user" do
       params = {
         :email => "test@goat-app.com",
         :name => "Goaty McGoatface",
@@ -33,6 +33,7 @@ describe Api::V1::UsersController, :type => :controller do
 
       expect(json["email"]).to eq(user.email)
       expect(json["token"]).to eq(user.token)
+
     end
   end
 end
