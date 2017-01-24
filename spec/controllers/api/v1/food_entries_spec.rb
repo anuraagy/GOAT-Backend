@@ -115,7 +115,7 @@ describe Api::V1::FoodEntriesController, :type => :controller do
   end
 
   describe "DELETE #destroy" do
-    it "Destroy an exercise entry" do
+    it "Destroy an food entry" do
       create_params = {
         :food_type     => "#{@food_type.id}",
         :servings      => 2,

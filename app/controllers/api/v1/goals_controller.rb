@@ -5,7 +5,7 @@ class Api::V1::GoalsController < Api::V1::BaseController
   end
 
   def create
-    goal = Goal.new(food_params)
+    goal = Goal.new(goal_params)
 
     if goal.save
       render :json => goal.as_json
@@ -37,6 +37,6 @@ class Api::V1::GoalsController < Api::V1::BaseController
   private
 
   def goal_params
-    params.permit(:id, :name, :exercise_type, :description, :goal_number, :current_value, :user_id)
+    params.permit(:id, :name, :exercise_type, :goal_number, :current_value, :user_id)
   end
 end
